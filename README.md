@@ -1,4 +1,5 @@
 # Midea AC LAN
+
 [![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/hacs/integration)
 [![Donate](https://img.shields.io/badge/donate-BuyMeCoffee-yellow.svg)](https://www.buymeacoffee.com/georgezhao2010)
 [![Stable](https://img.shields.io/github/v/release/georgezhao2010/midea_ac_lan)](https://github.com/georgezhao2010/midea_ac_lan/releases/latest)
@@ -11,7 +12,9 @@ Control your Midea M-Smart appliances via local area network.
 - Extra sensors and switches.
 - Synchronize status with the appliance by long TCP connection in time.
 
-This component inspired from the repository at [@mac-zhou](https://github.com/mac-zhou/midea-msmart) which provides similar functionality for Midea air conditioners. This component include verbatim or adapted portions of the code from his great projects.
+This component inspired from the repository at [@mac-zhou](https://github.com/mac-zhou/midea-msmart) which provides
+similar functionality for Midea air conditioners. This component include verbatim or adapted portions of the code from
+his great projects.
 
 Thanks also to [@NeoAcheron](https://github.com/NeoAcheron/midea-ac-py).
 
@@ -65,30 +68,44 @@ And more.
 | FD   | Humidifier                 | [FD.md](doc/FD.md) |
 
 # Installation
-Search 'Midea AC LAN' in HACS and install, or copy all files in `custom_components/midea_ac_lan` from [Latest Release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest) to your `/custom_components/midea_ac_lan` in Home Assistant manually. 
+
+Search 'Midea AC LAN' in HACS and install, or copy all files in `custom_components/midea_ac_lan`
+from [Latest Release](https://github.com/georgezhao2010/midea_ac_lan/releases/latest) to your
+`/custom_components/midea_ac_lan` in Home Assistant manually.
 
 Restart Home Assistant.
 
 # Add device
-***❗Note: First, set a static IP address for your appliance in the router, in case the IP address of the appliance changes after set-up.***
 
-After installation, search and add component Midea AC LAN in Home Assistant integrations page.
+***❗Note: First, set a static IP address for your appliance in the router, in case the IP address of the appliance
+changes after set-up.***
 
-Or click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
+After installation, search and add the "Midea AC LAN" component from the Home Assistant "integrations" page.
 
-***❗Note: During the configuration process, you may be asked to enter your Midea account and password. It's necessary to retrieve appliance information (Token and Key) from Midea cloud server. After all appliances configured, you can remove the Midea account configuration without affecting the use of the appliance.***
+Or
+click [![Configuration](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=midea_ac_lan)
 
-After the account is configured, Click 'ADD DEVICE' once more to add new device. You could repeat the above action to add multiple devices.
+***❗Note: During the configuration process, you may be asked to enter your Midea account and password. It's necessary to
+retrieve appliance information (Token and Key) from Midea cloud server. After all appliances configured, you can remove
+the Midea account configuration without affecting the use of the appliance.***
+
+After the account is configured, Click 'ADD DEVICE' once more to add new device. You could repeat the above action to
+add multiple devices.
 
 ## Discover automatically
-Using this option, the component could auto-discover and list Midea M-Smart appliances in network or specified IP address, select one and add it in.
+
+Using this option, the component could auto-discover and list Midea M-Smart appliances in network or specified IP
+address, select one and add it in.
 
 You can also use an IP address to search within a specified network, such as `192.168.1.255`.
 
-***❗Note: Discovery automatically requires your appliances and your Home Assistant must be in the same sub-network. Otherwise, devices may not be auto-discovered.  Check this by yourself.***
+***❗Note: Discovery automatically requires your appliances and your Home Assistant must be in the same sub-network.
+Otherwise, devices may not be auto-discovered. Check this by yourself.***
 
 ## Configure manually
+
 If you already know following information, you could add the appliance manually.
+
 - Appliance code
 - Appliance type (one of [Supported appliances](README.md#supported-appliances))
 - IP address
@@ -98,7 +115,9 @@ If you already know following information, you could add the appliance manually.
 - Key
 
 ## List all appliances only
-Using this option, you can list all discoverable Midea M-Smart devices on the network, along with their IDs, types, SNs, and other information.
+
+Using this option, you can list all discoverable Midea M-Smart devices on the network, along with their IDs, types, SNs,
+and other information.
 
 ***❗Note: For certain reasons, not all supported devices may be listed here.***
 
@@ -109,32 +128,50 @@ You can re-set the IP address when device IP changed.
 You can also add extra sensor and switch entities or customize your own device.
 
 ## IP address
+
 Set the IP address of device. You can reset this when your device IP is changed.
 
 ## Refresh interval
-Set the interval for actively refreshing the status of a single device (the unit is second) (30 by default and 0 means not refresh actively)
-Mostly the status update of Midea devices relies on the active information notification of the device, in which condition the status update in HA still works normally even if the refresh interval is set to be “0”. This component will also actively query the device status at regular intervals, and the default time is 30 seconds. Some devices do not have active information notifications when their status changed, so synchronization with the status in HA will be slower. If you are very concerned about the synchronization speed of the status, you can try to set a shorter status refresh interval.
+
+Set the interval for actively refreshing the status of a single device (the unit is second) (30 by default and 0 means
+not refresh actively)
+Mostly the status update of Midea devices relies on the active information notification of the device, in which
+condition the status update in HA still works normally even if the refresh interval is set to be “0”. This component
+will also actively query the device status at regular intervals, and the default time is 30 seconds. Some devices do not
+have active information notifications when their status changed, so synchronization with the status in HA will be
+slower. If you are very concerned about the synchronization speed of the status, you can try to set a shorter status
+refresh interval.
 
 ***❗Note: shorter refresh interval may mean more power consumption***
 
 ## Extra sensor and switch entities
-After configuration, one of few main entity (e.g. climate entity) may be generated . If you want to make the attributes to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (if your devices supported).
+
+After configuration, one of few main entity (e.g. climate entity) may be generated . If you want to make the attributes
+to extra sensor and switch entities, click CONFIGURE in Midea AC LAN integration card to choose (if your devices
+supported).
 
 ## Customize
-Some types of device have their own configuration items, if your device does not work properly, you may need to customize it. Refer to the device documentation for specific information.
+
+Some types of device have their own configuration items, if your device does not work properly, you may need to
+customize it. Refer to the device documentation for specific information.
 
 The format of customizations must be JSON.
 
 If multiple customization items need to be configured, the settings must comply with the JSON format.
 
 Example
+
 ```json
-{"refresh_interval": 15, "fan_speed":  100}
+{
+  "refresh_interval": 15,
+  "fan_speed": 100
+}
 ```
 
 # Debug
 
 Turn on the debug log out，config in configuration.yaml
+
 ```yaml
 logger:
   default: warn
@@ -142,8 +179,8 @@ logger:
     custom_components.midea_ac_lan: debug
 ```
 
-# Support my works 
+# Support my work
 
-If you like this integration, why do not you support my works by buying me a coffee?
+If you like this integration, why don't you support my work by buying me a coffee?
 
 [![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png)](https://www.buymeacoffee.com/georgezhao2010)

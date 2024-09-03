@@ -1,8 +1,11 @@
 # Fresh Air Appliance
 
-***Note: Some Midea appliance be named "Fresh Air Appliance", the protocol that actually uses the air conditioner. If your fresh air appliance is identified as an air conditioner, check out [Build-in fresh air system](CE.md#Build-in%20fresh%20air%20system)***
+***Note: Some Midea appliance be named "Fresh Air Appliance", the protocol that actually uses the air conditioner. If
+your fresh air appliance is identified as an air conditioner, check
+out [Build-in fresh air system](CE.md#Build-in%20fresh%20air%20system)***
 
 ## Features
+
 - Supports fan speed
 - Supports preset mode
 
@@ -11,11 +14,15 @@
 Set the levels of fan except "Auto" (7 by default).
 
 ```json
-{"speed_count": 5}
+{
+  "speed_count": 5
+}
 ```
 
 ## Entities
+
 ### Default entity
+
 | EntityID           | Class | Description |
 |--------------------|-------|-------------|
 | fan.{DEVICEID}_fan | fan   | Fan entity  |
@@ -41,7 +48,6 @@ Set the levels of fan except "Auto" (7 by default).
 
 ## Services
 
-
 ### midea_ac_lan.set_attribute
 
 [![Service](https://my.home-assistant.io/badges/developer_call_service.svg)](https://my.home-assistant.io/redirect/developer_call_service/?service=midea_ac_lan.set_attribute)
@@ -55,6 +61,7 @@ Set the attribute of appliance. Service data:
 | value     | true or false                                                                                                     |
 
 Example
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

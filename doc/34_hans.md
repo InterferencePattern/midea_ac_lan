@@ -1,8 +1,11 @@
 # 集成水槽洗碗机（厨房净洗中心）
+
 - 已知情况下，集成水槽洗碗机与洗碗机控制逻辑一致。
 
 ## 生成实体
+
 ### 默认实体
+
 无默认实体
 
 ### 额外生成实体
@@ -41,6 +44,7 @@
 | value     | true 或 false                              |
 
 示例
+
 ```yaml
 service: midea_ac_lan.set_attribute
 data:

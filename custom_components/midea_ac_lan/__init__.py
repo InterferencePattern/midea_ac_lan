@@ -75,7 +75,7 @@ async def async_setup(hass: HomeAssistant, hass_config: dict):
                 value = 102
             item = MIDEA_DEVICES.get(dev.device_type).get("entities").get(attr)
             if (item and (item.get("type") in EXTRA_SWITCH) or
-                         (dev.device_type == 0xAC and attr == "fan_speed" and value in range(0, 103))):
+                    (dev.device_type == 0xAC and attr == "fan_speed" and value in range(0, 103))):
                 dev.set_attribute(attr=attr, value=value)
             else:
                 _LOGGER.error(f"Appliance [{device_id}] has no attribute {attr} or value is invalid")
